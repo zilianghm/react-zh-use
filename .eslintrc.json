@@ -12,6 +12,8 @@
         "node": true,
         "es2021": true
     },
+    // 不生成缓存文件
+    "cache": false,
     // 使用未定义的变量预设不提醒
     "globals": {},
     // js 解析器配置
