@@ -1,6 +1,10 @@
 /* ====================== 工具方法 ================================ */
 
-// 扁平化数组转 tree
+/**
+ * 扁平化数组转 tree
+ * @param {Array} list    
+ * @return {Array} 树形结构 tree   
+ */
 export const arrayToTree = (list = [], pid = 0) => {
     let result = []
     if (list && list.length) {
@@ -14,7 +18,11 @@ export const arrayToTree = (list = [], pid = 0) => {
     return result
 }
 
-// tree 转扁平化数组
+/**
+ * tree 转扁平化数组
+ * @param {Array} tree
+ * @return {Array} 数组的扁平化解构
+ */
 export const treeToArray = (tree = []) => {
     let result = []
     for (const item of tree) {
@@ -28,7 +36,11 @@ export const treeToArray = (tree = []) => {
     return result
 }
 
-// 彻底扁平化
+/** 
+ * 彻底扁平化
+ * @param {*} x 什么类型参数都行
+ * @return {*} 和入参数同样类型
+ */
 export const flatten = (x) => {
     // 基础类型、null 直接返回
     if (typeof x !== 'object' || x === null) return x
@@ -60,7 +72,11 @@ export const flatten = (x) => {
     return flattenX
 }
 
-// 深拷贝
+/**
+ * 深拷贝
+ * @param {*} x 什么类型都可以
+ * @return {*} 和入参数同样类型
+ */
 export const deepClone = x => {
     // 基础类型、null 直接返回
     if (typeof x !== 'object' || x === null) return x
@@ -80,7 +96,12 @@ export const deepClone = x => {
     return cloneX
 }
 
-// 深比较
+/**
+ * 深比较
+ * @param {Object, Array} x
+ * @param {Object, Array} y
+ * @return {boolean}
+ */
 export const deepCompare = (x, y) => {
     const keysX = Object.keys(x)
     const keysY = Object.keys(y)
@@ -120,7 +141,11 @@ export const deepCompare = (x, y) => {
     }
 }
 
-// 深合并
+/**
+ * 深合并
+ * @param {*} opt 什么参数都可以，通过 ... 扩展语法收集参数为数组
+ * @return {object} result 
+ */
 export const deepAssign = (...opt) => {
     let result = {}
     opt.forEach(item => {
@@ -137,3 +162,35 @@ export const deepAssign = (...opt) => {
     return result
 }
 
+/**
+ * 函数防抖 debounce：delay 时间内只执行一次
+ * @param {*}
+ * @return {*}
+ */
+export const debounce = (fun, delay = 1000) => {
+    let timeBar = null
+    return (...arg) => {
+        if (timeBar) {
+            clearTimeout(timeBar)
+        }
+        timeBar = setTimeout(() => {
+            fun.apply(this, arg)
+        }, delay)
+    }
+}
+
+/**
+ * 函数节流 throttle：按 delay 时间来间隔执行
+ * @param {*}
+ * @return {*}
+ */
+export const throttle = (fun, delay = 500) => {
+    let timerBar = null
+    return (...arg) => {
+        if (timerBar) return
+        timerBar = setTimeout(() => {
+            fun.apply(this, arg)
+            timerBar = null
+        }, delay)
+    }
+}
