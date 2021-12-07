@@ -31,9 +31,11 @@ const Img: React.FC<propsType> = (props) => {
     )
 }
 
+// props 是否变化
 const areEqual = (prevProps, nextProps) => {
     return JSON.stringify(prevProps) === JSON.stringify(nextProps)
 }
 
+// props 没有变化不渲染组件
 export const ImgLazy = React.memo(Img, areEqual)
 
