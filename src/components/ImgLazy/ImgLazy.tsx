@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {deepCompare} from '../JSUtils';
+import {deepCompare} from '../../jstools/tools';
 
 interface propsType {
     placehold?: string,
