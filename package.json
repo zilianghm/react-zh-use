@@ -1,6 +1,6 @@
 {
   "name": "react-zh-use",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "自用（组件 + 工具方法 + Hooks）",
   "main": "lib/index.js",
   "scripts": {
