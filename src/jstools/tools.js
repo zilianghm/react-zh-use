@@ -7,6 +7,7 @@
  */
 export const arrayToTree = (list = [], pid = 0) => {
     let result = []
+    
     if (list && list.length) {
         list.forEach((item) => {
             if (item.pid === pid) {
